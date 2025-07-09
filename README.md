@@ -3,18 +3,18 @@
 
 A minimal, terminal-based task manager written in Python.  
 Manage your daily tasks from the command line: add, list, and update task status — fast and simple.
+```
 
 ---
 
 ## 📁 Project Structure
-```
 
+```
 task_manager/
 │
 ├── manage.py # Main CLI interface
 ├── task_class.py # Task class and Status enum
-
-````
+```
 
 ---
 
@@ -24,7 +24,7 @@ task_manager/
 
 ```bash
 python manage.py
-````
+```
 
 ### 📌 Available Commands
 
@@ -81,7 +81,4 @@ No external libraries needed.
 Created with ❤️ by [Mortezy](https://github.com/Mortezy) – as part of my learning journey.
 Feel free to use, fork, or suggest improvements!
 
-```
-
 ---
-```
