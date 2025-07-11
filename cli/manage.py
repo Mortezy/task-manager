@@ -1,8 +1,9 @@
-from task_class import *
+from core.task_class import *
 from typing import List
 import shlex
 
-tasks: List[Task] = [Task("test1"), Task("test2"), Task("test3")]
+# tasks: List[Task] = [Task("test1"), Task("test2"), Task("test3")]
+tasks = []
 
 
 def add(title):

@@ -1,5 +1,6 @@
 from datetime import date
 from enum import Enum
+import json
 
 
 class Status(Enum):
@@ -15,6 +16,13 @@ class Task:
         self.title = title
         self.todo_date = todo_date
         self.status: Status = Status.TODO
+
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "to do date": self.todo_date.isoformat(),
+            "status": self.status.name,
+        }
 
     def __str__(self):
         return f"{self.title}"

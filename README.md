@@ -1,32 +1,46 @@
-```markdown
-# 📝 Task Manager (CLI – Python)
+# 📝 Task Manager (CLI + Web API – Python)
 
-A minimal, terminal-based task manager written in Python.  
-Manage your daily tasks from the command line: add, list, and update task status — fast and simple.
-```
+A minimal task manager project written in Python.  
+This project includes two interfaces:
+
+- ✅ A simple **CLI version** for command-line task management
+- 🌐 A basic **Flask-based web API** for interacting via HTTP
 
 ---
 
 ## 📁 Project Structure
 
 ```
-task_manager/
+
+task-manager/
 │
-├── manage.py # Main CLI interface
-├── task_class.py # Task class and Status enum
+├── core/
+│   └── task\_class.py       # Task class and Status enum
+│
+├── cli/
+│   └── manage.py           # CLI interface
+│
+├── web/
+│   ├── **init**.py
+│   └── app.py              # Flask web API
+│
+└── README.md
+
 ```
 
 ---
 
 ## 🚀 How to Use
 
-### ▶ Run the App
+### ▶ CLI Version
+
+Run the CLI interface:
 
 ```bash
-python manage.py
+python -m cli.manage
 ```
 
-### 📌 Available Commands
+### 📌 CLI Commands
 
 ```
 add "task title"          → Add a new task
@@ -37,14 +51,72 @@ help                      → Show help message
 exit                      → Exit the program
 ```
 
-> 💡 Tip: If your task title contains spaces, wrap it in quotes
-> Example: `add "Buy groceries"`
+> 💡 Tip: Wrap task titles with spaces in quotes → `add "Buy groceries"`
+
+---
+
+### ▶ Flask Web API Version
+
+Start the Flask server:
+
+```bash
+python -m web.app
+```
+
+The server will run at: `http://localhost:8000`
+
+---
+
+## 🔗 API Endpoints
+
+### 📤 Get All Tasks
+
+**GET** `/tasks`
+
+Example:
+
+```
+GET http://localhost:8000/tasks
+```
+
+Response:
+
+```json
+{
+  "task list": [
+    {
+      "id": 0,
+      "task": {
+        "title": "Buy milk",
+        "to do date": "2025-07-07",
+        "status": "TODO"
+      }
+    }
+  ]
+}
+```
+
+---
+
+### 📥 Add a New Task
+
+**POST** `/tasks?title=YourTitle`
+
+Query Parameter:
+
+- `title` (required)
+
+Example:
+
+```
+POST http://localhost:8000/tasks?title=Read%20book
+```
 
 ---
 
 ## 🎯 Status Options
 
-You can set the task status using either number or name:
+You can set the task status (CLI) using either number or name:
 
 | Code | Name        |
 | ---- | ----------- |
@@ -57,28 +129,37 @@ You can set the task status using either number or name:
 
 ## 🛠 Requirements
 
-Just Python 3.10+
-No external libraries needed.
+- Python 3.10+
+- Flask (for the web version)
+
+Install Flask if needed:
+
+```bash
+pip install flask
+```
 
 ---
 
 ## 📌 Notes
 
-- This is a beginner-friendly CLI project designed to practice:
+- Tasks are stored in memory (not persistent).
+- Both CLI and Web are built to be beginner-friendly.
+- Can be extended with:
 
-  - Classes and enums
-  - Command parsing
-  - Lists and loops
-  - Basic user interaction
-
-- Tasks are **not** yet saved to disk.
-  (Can be extended with JSON or SQLite support later.)
+  - File or database persistence
+  - More API endpoints (e.g., update/delete)
+  - Task filtering or search
 
 ---
 
-## 🧑‍💻 Author
+## 👨‍💻 Author
 
-Created with ❤️ by [Mortezy](https://github.com/Mortezy) – as part of my learning journey.
-Feel free to use, fork, or suggest improvements!
+💻 [Mortezy](https://github.com/Mortezy)
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
