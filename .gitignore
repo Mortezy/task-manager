@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+
+# VS Code settings
+.vscode/
+
+# MacOS metadata
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Python egg files
+*.egg
+*.egg-info/
+
+# Compiled C extensions
+*.so
