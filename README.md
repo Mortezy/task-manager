@@ -11,21 +11,22 @@ This project includes two interfaces:
 ## 📁 Project Structure
 
 ```
-
 task-manager/
 │
 ├── core/
+|   ├── __init__.py
 │   └── task\_class.py       # Task class and Status enum
 │
 ├── cli/
 │   └── manage.py           # CLI interface
 │
 ├── web/
-│   ├── **init**.py
+│   ├── __init__.py
 │   └── app.py              # Flask web API
 │
-└── README.md
-
+├── README.md
+├── .gitignore
+└── LICENSE
 ```
 
 ---
